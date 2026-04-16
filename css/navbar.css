@@ -1,0 +1,233 @@
+
+/*! ==================== Navbar ==================== */
+.main-nav {
+    position: relative;
+    width: 100%;
+}
+nav .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+nav .logo {
+    width: 120px;
+    transition: transform 0.3s ease;
+    display: flex;
+}
+nav .logo:hover {
+    transform: scale(1.05);
+}
+nav .nav-content ul.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+nav .nav-content ul.links li a {
+    color: rgba(209, 213, 220, 1);
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 700;
+    transition: .5s;
+}
+nav .nav-content ul.links li a:hover,
+nav .nav-content ul.links li.active a {
+    color: var(--main-color);
+}
+/*? ==================== Start Custom Dropdown ==================== */
+nav .custom-dropdown {
+    position: relative;
+}
+nav .dropdown-btn {
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 18px;
+}
+nav .dropdown-btn img {
+    width: 20px;
+    height: 20px;
+}
+nav .dropdown-btn .arrow {
+    font-size: 12px;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+nav .dropdown-btn.active .arrow {
+    transform: rotate(180deg);
+}
+nav .custom-dropdown-menu {
+    position: absolute;
+    top: 160%;
+    right: 0;
+
+    background-color: rgba(15, 22, 45, 0.92);
+    padding: 8px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    width: 185px;
+
+    opacity: 0;
+    transform-origin: top center;
+    transform: scaleY(0.6) translateY(-10px);
+    transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    z-index: 999;
+}
+nav .custom-dropdown-menu.show {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+}
+nav .custom-dropdown-menu li {
+    border-radius: 12px;
+    overflow: hidden;
+}
+nav .custom-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    text-decoration: none;
+    color: var(--white-color);
+    border-radius: 12px;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+nav .custom-dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+}
+/*? ==================== End Custom Dropdown ==================== */
+nav .nav-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/*! ==================== Mini-Navbar ==================== */
+nav.mini-navbar .nav-content {
+    width: 70%;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 50px;
+    padding: 10px;
+
+    padding: 10px 20px;
+    box-shadow: 0 0 7px var(--main-color);
+}
+nav.mini-navbar .logo {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav.mini-navbar .nav-content .main-btn {
+    background-color: var(--white-color);
+    color: var(--main-color);
+    border: none;
+}
+nav.mini-navbar {
+    position: fixed;
+    top: -120px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+    will-change: top, opacity;
+}
+nav.mini-navbar.visible {
+    top: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+/* ! ==================== Responsive Navbar ==================== */
+nav .show-menu {
+    color: var(--white-color);
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+}
+nav ul.links .mobile-only {
+    display: none;
+}
+@media (max-width: 991px) {
+    nav .custom-dropdown-menu {
+        width: 150px;
+        right: -40px;
+    }
+    nav .nav-content ul.links {
+        display: none;
+    }
+    nav .nav-actions .main-btn {
+        display: none;
+    }
+    nav ul.links .mobile-only {
+        display: block;
+    }
+    nav ul.links .mobile-only .main-btn {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+    }
+    nav .show-menu {
+        display: flex;
+    }
+    nav .nav-content ul.links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 105%;
+        right: 0;
+        left: 0;
+        background-color: rgba(15, 22, 45, 0.97);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        padding: 10px 20px 20px;
+        transition: .5s;
+
+        opacity: 0;
+        z-index: -1;
+    }
+    nav .nav-content ul.links.open {
+        opacity: 1;
+        z-index: 999;
+    }
+
+    nav .nav-content ul.links li {
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    nav .nav-content ul.links li:last-child {
+        border-bottom: none;
+    }
+    nav .nav-content {
+        position: relative;
+    }
+
+    nav.mini-navbar .nav-content ul.links {
+        pointer-events: none;
+    }
+    nav.mini-navbar .nav-content ul.links.open {
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    nav.mini-navbar .nav-content {
+        width: 90%;
+    }
+}

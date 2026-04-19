@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/images/preload/Mask group (1).png" type="image/x-icon">
+    <title>BotifyX</title>
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Project CSS files -->
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/stylePages.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "IBM Plex Sans Arabic", sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .modal {
+            background: rgba(10, 20, 50, 0.92);
+            border: 1px solid rgba(0, 178, 248, 0.25);
+            border-radius: 20px;
+            padding: 2rem 2rem 1.5rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .modal-title {
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .modal-title h2 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .modal-desc {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-desc span {
+            color: #00B2F8;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .f-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 178, 248, 0.2);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 13px;
+            font-family: inherit;
+            outline: none;
+            transition: border 0.2s;
+            width: 100%;
+            direction: rtl;
+        }
+
+        .f-input:focus {
+            border-color: rgba(0, 178, 248, 0.6);
+        }
+
+        .f-input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 12px;
+        }
+
+        .f-input.highlight {
+            border-color: rgba(0, 178, 248, 0.6);
+        }
+
+        select.f-input {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .select-wrap {
+            position: relative;
+        }
+
+        .select-wrap::after {
+            content: "▾";
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        select.f-input option {
+            background: #0d1f3c;
+            color: #fff;
+        }
+
+        textarea.f-input {
+            resize: none;
+        }
+
+        .upload-area {
+            border: 1px dashed rgba(0, 178, 248, 0.3);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .upload-area:hover {
+            border-color: rgba(0, 178, 248, 0.6);
+        }
+
+        .upload-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .upload-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .upload-text span {
+            color: #00B2F8;
+            font-size: 11px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: #00B2F8;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.88;
+        }
+
+        .btn-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==================== Icon Bot ==================== -->
+    <div class="icon-bot-box">
+        <div class="image">
+            <img src="./assets/images/icon-Bot.svg" alt="X-Bot">
+        </div>
+        <div class="text">
+            <span>مرحباً بك.. أنا X-Bot 🤖</span>
+            <p>أنا هنا لإرشادك لأفضل حلول الأتمتة التي تناسب حجم أعمالك. هل نبدأ؟</p>
+        </div>
+    </div>
+
+    <!-- ==================== Navbar ==================== -->
+    <nav class="mini-navbar visible">
+        <div class="my-container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <div class="images">
+                        <img class="mask-Logo-1" src="./assets/images/logo-X.svg" alt="BotifyX Logo">
+                    </div>
+                </a>
+
+                <ul class="links">
+                    <li><a href="/">الرئيسية</a></li>
+                    <li><a href="why-us.html">لماذا نحن</a></li>
+                    <li><a href="solutions.html">الحلول</a></li>
+                    <li><a href="projects.html">مشاريعنا</a></li>
+                    <li><a href="systems.html">ألية العمل</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="main-btn">
+                        <span class="main-btn-circle"></span>
+                        <a href="#" class="main-btn-inner">
+                            <span class="main-btn-text">ارتقِ بأعمالك</span>
+                        </a>
+                    </div>
+                    <div class="show-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="modal">
+        <div class="modal-title">
+            <h2>نموذج طلب استشارة ذكية</h2>
+        </div>
+        <p class="modal-desc">
+            بس في <span>BotifyX</span> نأخذ خصوصيتك بأهمية قصوى. جميع المعلومات المُرسلة محمية بنظام
+            (NDA) وتخضع لاتفاقية سرية المعلومات بالكامل قبل البدء الأول.
+        </p>
+
+        <form id="consultationForm">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="projectName">اسم الجهة / المشروع</label>
+                    <input class="f-input highlight" type="text" id="projectName" placeholder="اسم الشركة" />
+                </div>
+                <div class="form-group">
+                    <label for="sector">القسم / المجال</label>
+                    <div class="select-wrap">
+                        <select class="f-input" id="sector">
+                            <option value="" disabled selected>اختر</option>
+                            <option>تقنية المعلومات</option>
+                            <option>المالية</option>
+                            <option>العمليات</option>
+                            <option>التسويق</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="country">بلد المقر</label>
+                    <div class="select-wrap">
+                        <select class="f-input" id="country">
+                            <option value="" disabled selected>اختر الدولة</option>
+                            <option>المملكة العربية السعودية</option>
+                            <option>الإمارات</option>
+                            <option>مصر</option>
+                            <option>الكويت</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="serviceType">نوع الخدمة المطلوبة</label>
+                    <div class="select-wrap">
+                        <select class="f-input" id="serviceType">
+                            <option value="" disabled selected>اختر</option>
+                            <option>تطوير تطبيقات</option>
+                            <option>أتمتة العمليات</option>
+                            <option>نظام ERP</option>
+                            <option>أمن سيبراني</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label for="budget">الميزانية التقريبية للمشروع</label>
+                <div class="select-wrap">
+                    <select class="f-input" id="budget">
+                        <option value="" disabled selected>اختر نطاق الميزانية</option>
+                        <option>أقل من 50,000 ريال</option>
+                        <option>50,000 – 200,000 ريال</option>
+                        <option>200,000 – 500,000 ريال</option>
+                        <option>أكثر من 500,000 ريال</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label for="description">الاستراتيجية / وصف المشروع</label>
+                <textarea class="f-input" id="description" rows="2"
+                    placeholder="اشرح فكرتك أو احتياجك بإيجاز..."></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 6px;">
+                <label>إضافة ملف لدينا البرنامج</label>
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <div class="upload-icon">☁️</div>
+                    <div class="upload-text">
+                        اسحب ملفك هنا أو انقر للرفع
+                        <span>يقبل ملف (PDF) بحجم أقصاه (20 ميجابايت)</span>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf" />
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span class="btn-dot"></span>
+                أرسل طلبك لبدأ الرحلة
+            </button>
+
+        </form>
+    </div>
+
+    <script>
+        const uploadArea = document.querySelector('.upload-area');
+        const fileInput = document.getElementById('fileInput');
+        const uploadText = document.querySelector('.upload-text');
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                uploadText.innerHTML = `
+          <strong style="color:#00B2F8">${file.name}</strong>
+          <span>تم اختيار الملف بنجاح ✓</span>
+        `;
+            }
+        });
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'rgba(0,178,248,0.7)';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = 'rgba(0,178,248,0.3)';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'rgba(0,178,248,0.3)';
+            const file = e.dataTransfer.files[0];
+            if (file && file.type === 'application/pdf') {
+                uploadText.innerHTML = `
+          <strong style="color:#00B2F8">${file.name}</strong>
+          <span>تم اختيار الملف بنجاح ✓</span>
+        `;
+            }
+        });
+
+        document.getElementById('consultationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
+        });
+    </script>
+
+</body>
+
+</html>

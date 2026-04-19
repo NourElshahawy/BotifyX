@@ -385,8 +385,8 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 0.2 },
   );
 
-  const statsSection = document.querySelector(".row-stats");
-  if (statsSection) statsObserver.observe(statsSection);
+  // const statsSection = document.querySelector(".row-stats");
+  // if (statsSection) statsObserver.observe(statsSection);
 
   // Services Section - Cards stagger
   const servicesObserver = new IntersectionObserver(

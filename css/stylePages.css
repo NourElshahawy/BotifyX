@@ -414,7 +414,7 @@
 }
 
 .card-content {
-    /* min-height: 280px; */
+    height: stretch ;
     position: relative;
     background: #00B3F81A;
     border: 1px solid rgba(0, 180, 255, 0.15);
@@ -878,6 +878,9 @@
 .solutions-2 .card-content {
     background: transparent;
     border: 1px solid transparent;
+}
+.solutions-2 .card-content:hover{
+    background: #00B3F81A !important;
 }
 
 .solutions-2 .group-btn {

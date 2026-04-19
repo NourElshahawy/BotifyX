@@ -95,6 +95,7 @@
     .card-sec-img {
         display: none;
     }
+        
 }
 
 @media (max-width: 890px) {
@@ -257,6 +258,16 @@
         -webkit-line-clamp: 6;
         padding: 0;
     }
+        .card-header-img{
+            flex-wrap: wrap;
+        }
+                .card-header-img img{
+                    height: 50px;
+                }
+                                .project-system-img .img-project {
+                                    width: 100%;
+                                    height: auto;
+                                }
 }
 
 @media (max-width: 575px) {

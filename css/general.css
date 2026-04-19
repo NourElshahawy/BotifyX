@@ -233,7 +233,7 @@ section {
 
 .main-title p {
     color: rgba(245, 245, 245, 1);
-    width: 50%;
+    /* width: 50%; */
     font-size: clamp(14px, 2vw, 18px);
 }
 

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f8f7f4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.4rem;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 1.75rem;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.25rem;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Cairo', sans-serif;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .url-input:focus {
+            border-color: #2563eb;
+        }
+
+        .gen-btn {
+            padding: 10px 18px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .gen-btn:hover {
+            background: #333;
+        }
+
+        .gen-btn:active {
+            transform: scale(0.97);
+        }
+
+        .qr-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafaf9;
+            border-radius: 14px;
+            border: 1px solid #eee;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            min-height: 220px;
+        }
+
+        .placeholder {
+            color: #bbb;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .url-display {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 1rem;
+            word-break: break-all;
+            padding: 8px 12px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .actions {
+            display: none;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .dl-btn {
+            padding: 9px 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 13px;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .dl-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .copy-btn {
+            padding: 9px 20px;
+            background: #1a1a1a;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .copy-btn:hover {
+            background: #333;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #bbb;
+            margin-top: 1.25rem;
+        }
+
+        @media (max-width: 480px) {
+            .input-row {
+                flex-direction: column;
+            }
+
+            .gen-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="logo">QR Generator</div>
+        <p class="title">ولّد QR Code</p>
+        <p class="subtitle">حط الرابط وامسحه بكاميرتك</p>
+
+        <div class="input-row">
+            <input class="url-input" id="urlInput" type="url" placeholder="https://example.com" dir="ltr" />
+            <button class="gen-btn" onclick="generateQR()">ولّد</button>
+        </div>
+
+        <div class="qr-wrapper" id="qrWrapper">
+            <div class="placeholder" id="placeholder">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="24" height="24" rx="3" stroke="#ccc" stroke-width="2" fill="none" />
+                    <rect x="10" y="10" width="12" height="12" rx="1" fill="#ccc" />
+                    <rect x="36" y="4" width="24" height="24" rx="3" stroke="#ccc" stroke-width="2" fill="none" />
+                    <rect x="42" y="10" width="12" height="12" rx="1" fill="#ccc" />
+                    <rect x="4" y="36" width="24" height="24" rx="3" stroke="#ccc" stroke-width="2" fill="none" />
+                    <rect x="10" y="42" width="12" height="12" rx="1" fill="#ccc" />
+                    <rect x="36" y="36" width="8" height="8" rx="1" fill="#ccc" />
+                    <rect x="48" y="36" width="8" height="8" rx="1" fill="#ccc" />
+                    <rect x="36" y="48" width="8" height="8" rx="1" fill="#ccc" />
+                    <rect x="48" y="48" width="8" height="8" rx="1" fill="#ccc" />
+                </svg>
+                <span>اكتب رابطك فوق واضغط «ولّد»</span>
+            </div>
+            <canvas id="qrCanvas" style="display:none;"></canvas>
+        </div>
+
+        <div class="url-display" id="urlDisplay"></div>
+        <div class="actions" id="actions">
+            <button class="dl-btn" onclick="downloadQR()">تحميل PNG</button>
+            <button class="copy-btn" onclick="copyLink()">نسخ الرابط</button>
+        </div>
+
+        <p class="footer">امسح الـ QR بكاميرا موبايلك</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let currentUrl = '';
+
+        function generateQR() {
+            const input = document.getElementById('urlInput').value.trim();
+            if (!input) { document.getElementById('urlInput').focus(); return; }
+
+            let url = input;
+            if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+            currentUrl = url;
+
+            const canvas = document.getElementById('qrCanvas');
+            const placeholder = document.getElementById('placeholder');
+            const urlDisplay = document.getElementById('urlDisplay');
+            const actions = document.getElementById('actions');
+
+            QRCode.toCanvas(canvas, url, {
+                width: 220,
+                margin: 2,
+                color: { dark: '#1a1a1a', light: '#fafaf9' },
+                errorCorrectionLevel: 'H'
+            }, function (err) {
+                if (!err) {
+                    placeholder.style.display = 'none';
+                    canvas.style.display = 'block';
+                    urlDisplay.textContent = url;
+                    urlDisplay.style.display = 'block';
+                    actions.style.display = 'flex';
+                }
+            });
+        }
+
+        function downloadQR() {
+            const canvas = document.getElementById('qrCanvas');
+            const a = document.createElement('a');
+            a.download = 'qrcode.png';
+            a.href = canvas.toDataURL('image/png');
+            a.click();
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const old = btn.textContent;
+                btn.textContent = 'تم النسخ ✓';
+                setTimeout(() => btn.textContent = old, 1800);
+            });
+        }
+
+        document.getElementById('urlInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') generateQR();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</body>
+
+</html>

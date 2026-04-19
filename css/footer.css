@@ -1,0 +1,154 @@
+footer {
+    background: url("../assets/images/footer-bg.webp") center/cover no-repeat !important;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding-block: 70px;
+}
+
+footer .header {
+    width: 60%;
+    margin-inline: auto;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 10, 30, 0.6),
+            rgba(0, 0, 0, 0.9));
+    z-index: 0;
+}
+
+footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-card {
+    width: 80%;
+    margin: auto;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(0, 224, 255, 0.2);
+    background: linear-gradient(180.04deg, #00B7FF -166.95%, rgba(0, 0, 0, 0.25) 29.55%, rgba(0, 5, 7, 0.25) 73.6%, #00B7FF 247.39%);
+}
+
+
+.footer-logo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.footer-logo img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.footer-contact .phone,
+.footer-contact .mails {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.footer-contact img {
+    width: 18px;
+}
+
+.flags {
+    display: flex;
+    gap: 8px;
+}
+
+.flags img {
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+footer .nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer .nav-content .logo {
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+footer .nav-content .logo:hover {
+    transform: scale(1.05);
+}
+
+footer .nav-content .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+footer .nav-content ul.links li a {
+    color: rgba(209, 213, 220, 1);
+    transition: .5s;
+    font-size: 16px;
+}
+
+footer .nav-content ul.links li a:hover,
+footer .nav-content ul.links li.active a {
+    color: var(--main-color);
+}
+
+footer .main-btn {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+    footer .footer-contact {
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    footer .header {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .nav-content {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    footer .header {
+        width: 100%;
+    }
+}

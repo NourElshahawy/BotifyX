@@ -1,0 +1,55 @@
+/* ==================== Scroll Stack (easehealth style) ==================== */
+
+/*
+  الفكرة:
+  كل .section-tab بتـstick في الأعلى وانت بتـscroll،
+  والـ section اللي بعدها بتجي فوقها وكأنها بتغطيها
+*/
+
+.tab-panel.active {
+    /* مهم: الـ parent ميبقاش overflow:hidden أو overflow:auto */
+    overflow: visible;
+}
+
+.section-tab {
+    position: sticky;
+    top: 0;
+    /* كل section تاخد على الأقل ارتفاع الشاشة عشان يبان الـ effect */
+    min-height: 100vh;
+    /* خلفية داكنة عشان تغطي اللي قبلها */
+    background-color: #000;
+    /* padding علشان المحتوى ميتلصقش بالأعلى */
+    padding: 80px 0 60px;
+    /* corners خفيفة على الأعلى عشان تبان إنها بتجي فوق */
+    border-radius: 24px 24px 0 0;
+}
+
+/* كل section تبقى فوق اللي قبلها */
+.section-tab.s1 { z-index: 1; }
+.section-tab.s2 { z-index: 2; background-color: #020c14; }
+.section-tab.s3 { z-index: 3; background-color: #021825; }
+.section-tab.s4 { z-index: 4; background-color: #000; }
+
+/* خط علوي خفيف بلون الـ brand عشان يبان الفصل */
+.section-tab.s2,
+.section-tab.s3,
+.section-tab.s4 {
+    border-top: 1px solid rgba(0, 179, 248, 0.12);
+}
+
+/* scale خفيف على اللي تحت عشان تحس إنها بتتدفع للخلف */
+/* بيتطبق عبر JS - شوف الملاحظة أسفل */
+.section-tab.is-beneath {
+    transform: scale(0.97);
+    transform-origin: center top;
+    transition: transform 0.4s ease;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 991px) {
+    .section-tab {
+        min-height: auto;
+        padding: 60px 0 40px;
+        border-radius: 16px 16px 0 0;
+    }
+}

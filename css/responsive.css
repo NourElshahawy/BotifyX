@@ -1,0 +1,346 @@
+/* @media (max-width: 1400px) {
+
+} */
+
+/* @media (max-width: 1200px) {
+
+} */
+
+@media (min-width: 991px) and (max-width: 1260px) {
+    .our-solutions .image-ai .images-box .head.animate {
+        top: -30px;
+    }
+
+    .our-solutions .image-ai .images-box .dots-light {
+        top: -10%;
+    }
+
+    .our-solutions .image-ai .images-box .light-pole.pole-left,
+    .our-solutions .image-ai .images-box .light-pole.pole-right {
+        bottom: 25%;
+    }
+
+    .our-solutions .image-ai .images-box .light-box {
+        bottom: 59%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .why-us.about .image .head-about {
+        top: 20px;
+    }
+
+    .custom-tabs-wrapper .nav {
+        justify-content: center !important;
+    }
+
+    .why-us-3 .cards-container {
+        margin-top: 0px;
+    }
+
+    .why-us-3 .cards-container .col-md-3:first-of-type .card-content .card-img,
+    .why-us-3 .cards-container .col-md-3:last-of-type .card-content .card-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-sec-img {
+        width: 200px;
+        height: 200px;
+        top: 42%;
+        left: 40%;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-title p {
+        width: 80%;
+    }
+
+    /* About */
+    .about .image .light-about {
+        bottom: 12%;
+    }
+
+    .about .image .head-about {
+        width: 20%;
+        height: auto;
+        top: 15%;
+        left: 52%;
+    }
+
+    /* Our-Solutions */
+    .our-solutions .image-ai .images-box {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .our-solutions .image-ai {
+        margin-top: 80px;
+        padding-top: 80px;
+    }
+
+    .cards-security .card-content .ul-1 {
+        padding-left: 0px;
+    }
+
+    .cards-security .card-content .ul-2 {
+        padding-left: 0px;
+    }
+
+    .cards-security .card-content .ul-3 {
+        padding-right: 30px;
+    }
+
+    .card-sec-img {
+        display: none;
+    }
+}
+
+@media (max-width: 890px) {
+
+    /* Hero */
+    .hero .caption {
+        width: 90%;
+    }
+
+    .hero .bg-hero {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* About */
+    #about .row-stats .col-stat .stats-card {
+        border-left: 1px solid;
+        border-image: linear-gradient(to bottom, #00b2f821, var(--main-color)) 1;
+        padding-left: 10px;
+    }
+
+    .about .image .light-about {
+        bottom: 21%;
+    }
+
+    /* Our Solutions */
+    .our-solutions .image-ai .images-box .light-pole {
+        width: 35px;
+    }
+
+    .our-solutions .image-ai .images-box .light-pole.pole-left,
+    .our-solutions .image-ai .images-box .light-pole.pole-right {
+        bottom: 8%;
+    }
+
+    .our-solutions .image-ai {
+        margin: 80px 0;
+    }
+
+    .hero .bg-hero .pin {
+
+        height: 50px;
+        width: 1px;
+        bottom: 0px;
+    }
+
+    .our-solutions .row-our-solutions {
+        padding-block: 10px;
+        margin-top: 10px;
+    }
+
+    .our-logos {
+        flex-direction: row;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .our-philosophy .card-section-content h3 {
+        font-size: 18px;
+    }
+
+    .development .card-section-content ul {
+        font-size: 12px;
+    }
+
+    .development .card-section-heading-content.c-3 {
+        margin-top: 0px;
+    }
+
+    .pages .main-title {
+        margin: 0 auto;
+    }
+
+    .cards-section {
+        padding: 30px 0;
+    }
+
+    .section-tab {
+        padding: 30px 0;
+    }
+
+    .tab-panel.active .s1,
+    .s1 {
+        z-index: 1;
+        top: -250px;
+    }
+
+    .tab-panel.active .s2,
+    .s2 {
+        z-index: 2;
+        top: -1600px;
+    }
+
+    .tab-panel.active .s3,
+    .s3 {
+        z-index: 3;
+        top: -1500px;
+    }
+
+    .tab-panel.active .s4,
+    .s4 {
+        z-index: 4;
+        top: -750px;
+    }
+
+    .tab-panel.active .s5,
+    .s5 {
+        z-index: 5;
+        top: -700px;
+    }
+
+
+    .tab-panel.active .s-p-1,
+    .s-p-1 {
+        top: -1800px;
+    }
+
+    .icon-bot-box .text {
+        width: 250px;
+    }
+
+    .card-body {
+        -webkit-line-clamp: 7;
+    }
+
+    .card-sec-img-mob {
+        display: none;
+    }
+
+    .cards-security .card-content ul {
+        margin-top: 60px;
+    }
+
+    .projects .nav-pills {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .project-lm .img-project {
+        width: 100px;
+        height: 200px;
+    }
+
+    .project-lm:hover .img-project {
+        margin: 0;
+    }
+
+    .card-content-steps .line-step {
+        display: none;
+    }
+
+    .land-top,
+    .land-top1 {
+        margin-top: 100px;
+    }
+
+    .card-content-steps .card-body {
+        -webkit-line-clamp: 6;
+        padding: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .main-btn {
+        padding: 10px 15px;
+    }
+
+    .main-btn i {
+        display: none;
+    }
+
+    .main-title p {
+        width: 100%;
+    }
+
+    /* Loading Page */
+    .loading-Page .images {
+        width: 80px;
+    }
+
+    .loading-Page .mask-Logo-2,
+    .loading-Page .mask-Logo-1 {
+        width: 60px;
+    }
+
+    .loading-Page .mask-Logo-2 {
+        right: 0;
+        bottom: -26px;
+    }
+
+    .loading-Page .mask-Logo-1 {
+        left: 5px;
+        top: -35px;
+    }
+
+    .loading-Page .mark-Logo {
+        height: 150px;
+    }
+
+    .logo-loading-Page .text-Logo {
+        width: 150px;
+    }
+
+    /* Hero */
+    .hero .bg-hero .logo {
+        width: 35px;
+    }
+
+    /* About */
+    .about .image {
+        height: 290px;
+    }
+
+    .about .stats-card {
+        gap: 20px;
+    }
+
+    .about .image .head-about {
+        top: 20%;
+    }
+
+    /* Ai Solutions */
+    .ai-solutions .ai-solutions-card .text {
+        gap: 10px;
+    }
+
+    .our-solutions .our-solutions-cards .icon-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Our Solutions */
+    .our-solutions .image-ai .images-box .light-pole.pole-left,
+    .our-solutions .image-ai .images-box .light-pole.pole-right {
+        bottom: 25%;
+    }
+
+
+    nav .logo {
+        width: 90px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+}

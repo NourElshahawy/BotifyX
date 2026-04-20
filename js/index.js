@@ -1,5 +1,13 @@
 // ! AOS.init();  
+window.addEventListener("scroll", () => {
+  const navContent = document.querySelector(".nav-content");
 
+  if (window.scrollY > 50) {
+    navContent.classList.add("scrolled");
+  } else {
+    navContent.classList.remove("scrolled");
+  }
+});
 const images = document.querySelectorAll(".loading-Page img");
 
 let loadedImages = 0;

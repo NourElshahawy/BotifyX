@@ -111,15 +111,44 @@ nav .nav-actions {
 
 /*! ==================== Mini-Navbar ==================== */
 nav.mini-navbar .nav-content {
-    width: 70%;
+    /* width: 97%;
     margin: 20px auto;
-    background-color: rgba(0, 0, 0, 1);
     border-radius: 50px;
     padding: 10px;
-
+    
     padding: 10px 20px;
-    box-shadow: 0 0 7px var(--main-color);
+    box-shadow: 0 0 7px var(--main-color); */
+    border-radius: 16px;
+        transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 10;
+    border-bottom: 0.5px solid var(--main-color);
+        flex-flow: row;
+        flex: none;
+        place-content: center space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1400px;
+        height: min-content;
+        padding: 24px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    
+    .nav-content.scrolled {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 16px;
+    will-change: auto;
+    transform: none;
+    transform-origin: 50% 50% 0px;
+    max-width: 1100px !important;
+    margin-top: 20px !important;
 }
+
+
 nav.mini-navbar .logo {
     background-color: #fff;
     width: 40px;
